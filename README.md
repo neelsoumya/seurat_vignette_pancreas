@@ -4,7 +4,7 @@ Vignette for Seurat package (single cell RNA sequencing) on pancreas dataset
 
 Adapted from https://www.dropbox.com/s/irx9qriblxqar14/pancreas.R?dl=1
 
-Download data from data downloaded from http://satijalab.org/seurat/get_started.html
+Download data from http://satijalab.org/seurat/get_started.html
 
  and
  
