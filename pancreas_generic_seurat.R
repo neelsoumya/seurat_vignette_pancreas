@@ -14,11 +14,6 @@
 #
 ###############################################################
 
-###############################################################
-# Below is a very simple example of using Seurat to analyze 
-# a beautiful human pancreas dataset generated using inDrop,
-# from the Yanai lab at NYUMC.
-###############################################################
 
 ###########################
 # Load libraries
@@ -41,11 +36,9 @@ library(Matrix)
 str_dir_files = "~/Downloads/GSE84133_RAW/"
 str_output_Robject = "pancreas.Robj"
 
-#all.files <- list.files("~/Downloads/YanaiData/data/")
 all.files <- list.files(str_dir_files)
 all.data <- data.frame()
 for (i in all.files[1:4]) {
-  #dat <- read.csv(paste("~/Downloads/YanaiData/data/", i, sep = ""))
   dat <- read.csv(paste(str_dir_files, i, sep = ""))
   all.data <- rbind(all.data,data.frame(dat))
   print(i)
