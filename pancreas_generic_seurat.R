@@ -93,6 +93,7 @@ PCElbowPlot(object = pancreas)
 
 # Get jackStraw plots
 pancreas <- JackStraw(object = pancreas, num.replicate = 100, display.progress = FALSE)
+JackStrawPlot(object = pancreas, PCs = 1:30)
 
 pancreas <- RunTSNE(pancreas, dims.use = 1:19, do.fast = T)
 
