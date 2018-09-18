@@ -119,7 +119,7 @@ TSNEPlot(pancreas, group.by = "orig.ident")
 # Find Markers of ductal cell subcluster, using the negative binomial test
 # only test genes with a 20% difference in detection rate to speed-up (optional)
 # Find markers of these clusters
-ductal.markers <- FindMarkers(pancreas, ident.1 = 5, ident.2 = 12, test.use = "negbinom", min.diff.pct = 0.2)
+ductal.markers <- FindMarkers(pancreas, ident.1 = 5, ident.2 = 12, test.use = "wilcox", min.diff.pct = 0.2)
 
 
 ###########################
@@ -129,7 +129,7 @@ ductal.markers <- FindMarkers(pancreas, ident.1 = 5, ident.2 = 12, test.use = "n
 # Visualize canonical and new markers
 FeaturePlot(pancreas, c("GCG", "INS","TFF1","PRSS1","VGF","TRIB3","DDR1","CRYBA2","SLC30A8"),
             cols.use = c("lightgrey","blue"), nCol = 3)
-
+VlnPlot(object = pancreas, features.plot = c("GCG", "INS"), use.raw = TRUE, y.log = TRUE)
 
 ###########################
 # Save output
