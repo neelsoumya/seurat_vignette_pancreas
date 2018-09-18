@@ -87,6 +87,13 @@ pancreas <- ScaleData(pancreas, vars.to.regress = c("orig.ident", "nUMI"), genes
 
 # Run PCA on variable genes and tSNE also 
 pancreas <- RunPCA(pancreas, pcs.compute = 30, weight.by.var = FALSE)
+
+# Get scree plot
+PCElbowPlot(object = pancreas)
+
+# Get jackStraw plots
+pancreas <- JackStraw(object = pancreas, num.replicate = 100, display.progress = FALSE)
+
 pancreas <- RunTSNE(pancreas, dims.use = 1:19, do.fast = T)
 
 # Cluster the data on these principal components
