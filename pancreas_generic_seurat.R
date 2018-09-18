@@ -99,7 +99,7 @@ pancreas <- FindClusters(pancreas, reduction.type = "pca", dims.use = 1:19, save
 # tSNE plots
 ###########################
 
-TSNEPlot(pancreas, do.label = T)
+TSNEPlot(pancreas, do.label = TRUE)
 TSNEPlot(pancreas, group.by = "assigned_cluster")
 TSNEPlot(pancreas, group.by = "orig.ident")
 
