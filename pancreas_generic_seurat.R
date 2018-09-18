@@ -69,7 +69,7 @@ rownames(pancreas.md) <- all.data[, 1]
 # 7) Find markers of these clusters
 ######################################################
 
-pancreas.data <- Matrix(pancreas.data, sparse = T)
+pancreas.data <- Matrix(pancreas.data, sparse = TRUE)
 pancreas <- CreateSeuratObject(raw.data = pancreas.data, min.cells = 3)
 pancreas <- AddMetaData(pancreas, metadata = pancreas.md)
 
@@ -93,12 +93,12 @@ PCElbowPlot(object = pancreas)
 
 # Get jackStraw plots
 pancreas <- JackStraw(object = pancreas, num.replicate = 100, display.progress = FALSE)
-JackStrawPlot(object = pancreas, PCs = 1:30)
+JackStrawPlot(object = pancreas, PCs = 1:20)
 
-pancreas <- RunTSNE(pancreas, dims.use = 1:19, do.fast = T)
+pancreas <- RunTSNE(pancreas, dims.use = 1:19, do.fast = TRUE)
 
 # Cluster the data on these principal components
-pancreas <- FindClusters(pancreas, reduction.type = "pca", dims.use = 1:19, save.SNN = T)
+pancreas <- FindClusters(pancreas, reduction.type = "pca", dims.use = 1:19, save.SNN = TRUE)
 
 # color by cluster ID, annotated cluster from the manuscript, or batch
 # Can switch the identity class using SetAllIdent if desired
